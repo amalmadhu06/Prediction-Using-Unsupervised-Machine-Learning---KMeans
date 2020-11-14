@@ -6,7 +6,6 @@
 # ## Author - Amal Madhu 
 # ## The Sparks Foundation GRIP Internship
 
-# In[14]:
 
 
 #Impoting libraries 
@@ -18,7 +17,7 @@ from sklearn import datasets
 import seabon as sns 
 
 
-# In[7]:
+
 
 
 #loading the dataset 
@@ -30,13 +29,12 @@ iris_df = pd.DataFrame(iris.data, columns = iris.feature_names)
 iris_df.head()
 
 
-# In[8]:
+
 
 
 iris_df.describe()
 
 
-# In[11]:
 
 
 # checking for missing values 
@@ -44,7 +42,6 @@ iris_df.describe()
 iris_df.isnull().sum()
 
 
-# In[15]:
 
 
 #Visualizing using pair plot
@@ -52,7 +49,7 @@ iris_df.isnull().sum()
 sns.pairplot(iris_df)
 
 
-# In[10]:
+
 
 
 #Fininding the optimum number of clusters for k-means classification
@@ -69,7 +66,7 @@ for i in range(1, 11):
     wcss.append(kmeans.inertia_)
 
 
-# In[13]:
+
 
 
 #Plotting the result
@@ -81,13 +78,12 @@ plt.ylabel("WCSS")
 plt.show()
 
 
-# In[ ]:
 
 
 #You can clearly see why it is called 'The elbow method' from the above graph, the optimum clusters is where the elbow occurs. This is when the within cluster sum of squares (WCSS) doesn't decrease significantly with every iteration. From this we choose the number of clusters as ** '3**'.
 
 
-# In[16]:
+
 
 
 #applying kmeans to the dataset, creating the kmeans classifier 
@@ -103,7 +99,6 @@ y_kmeans = kmeans.fit_predict(x)
 
 
 
-# In[26]:
 
 
 #Visualising the clusters- On the first two columns
@@ -116,8 +111,6 @@ plt.scatter(x[y_kmeans == 2, 0], x[y_kmeans == 2,1],
            s = 100, c = 'green', label = "Irid-virginica")
 plt.legend()
 
-
-# In[27]:
 
 
 #Plotting with centroids of the clusters
@@ -134,7 +127,6 @@ plt.scatter(kmeans.cluster_centers_[:,0], kmeans.cluster_centers_[:,1],
 plt.legend()
 
 
-# In[ ]:
 
 
 #Successfully completed the task 
